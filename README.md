@@ -286,13 +286,12 @@ Artifacts: CSV tables + Excel workbook + meta.json (hash, parameters, versions)
 
 <img src="docs/resumen.png" alt="Resumen" width="700">
 <img src="docs/calidad_datos.png" alt="Calidad de datos" width="700">
-<img src="docs/descarga_de_resultados.png" alt="Descarga de resultados" width="700">
-<img src="docs/diversidad.png" alt="Diversidad" width="700">
-<img src="docs/docker_desktop_running.png" alt="Docker Desktop" width="700">
 <img src="docs/perfil_sonoro.png" alt="Perfil sonoro" width="700">
 <img src="docs/redes_generos_1.png" alt="Redes de géneros 1" width="700">
 <img src="docs/redes_generos_2.png" alt="Redes de géneros 2" width="700">
-
+<img src="docs/diversidad.png" alt="Diversidad" width="700">
+<img src="docs/docker_desktop_running.png" alt="Docker Desktop" width="700">
+<img src="docs/descarga_de_resultados.png" alt="Descarga de resultados" width="700">
 
 ### Machine Learning strategy
 
