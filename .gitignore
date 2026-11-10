@@ -1,4 +1,3 @@
-@"
 __pycache__/
 .pytest_cache/
 *.egg-info/
@@ -7,6 +6,4 @@ __pycache__/
 .env
 artifacts/*
 !artifacts/.gitkeep
-deliverables/
 .DS_Store
-"@ | Set-Content .gitignore
