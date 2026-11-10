@@ -1,0 +1,8 @@
+# Desactivar por completo la detección de lenguajes para notebooks y archivos HTML
+*.ipynb linguist-detectable=false
+*.html linguist-detectable=false
+
+# Excluir carpetas completas de las estadísticas
+notebooks/** linguist-detectable=false
+deliverables/** linguist-detectable=false
+docs/** linguist-detectable=false

@@ -1,0 +1,33 @@
+services:
+  # Cálculo del análisis (una vez): docker compose run --rm pipeline [--n-perm 999]
+  pipeline:
+    build: .
+    profiles: ["tools"]
+    command: ["python", "-m", "billboard_intel"]
+    environment:
+      BDI_DATA_PATH: /app/data/raw/Billboard_Hot_100_Number_Ones_Database.xlsx
+      BDI_ARTIFACTS_DIR: /app/artifacts
+    volumes: ["./data:/app/data:ro", "./artifacts:/app/artifacts"]
+
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      BDI_DATA_PATH: /app/data/raw/Billboard_Hot_100_Number_Ones_Database.xlsx
+      BDI_ARTIFACTS_DIR: /app/artifacts
+    volumes: ["./data:/app/data:ro", "./artifacts:/app/artifacts"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "app/streamlit_app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports: ["8501:8501"]
+    environment:
+      API_URL: http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
